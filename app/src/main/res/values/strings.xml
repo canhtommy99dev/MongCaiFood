@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MongCaiFood</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="appID">4071196666898476705</string>
+    <string name="title_activity_login_with_app">LoginWithApp</string>
+    <string name="facebook_app_id">2509585939365338</string>
+    <string name="fb_login_protocol_scheme">fb2509585939365338</string>
+    <string name="title_activity_ban_do">Map</string>
+</resources>

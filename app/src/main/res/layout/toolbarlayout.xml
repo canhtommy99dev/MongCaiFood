@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/avataracount"
+        android:id="@+id/btn_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        />
+    <ImageView
+        android:id="@+id/btnsearch"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_search"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="55dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mong Cai Food"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="70dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/qrcode"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="104dp"
+        android:layout_marginTop="5dp"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/iconapp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"/>
+</RelativeLayout>
