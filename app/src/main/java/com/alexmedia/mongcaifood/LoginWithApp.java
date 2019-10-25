@@ -47,7 +47,8 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
     SignInButton btnGoogle;
     FirebaseAuth mAuth;
     private static final String TAG = "LoginWithApp";
-    String email,name,idToken;
+    String email,name;
+    String idToken;
     FirebaseAuth.AuthStateListener authStateListener;
     private static final int GOOGLE_SIGN = 1;
     GoogleApiClient mgoogleclient;
@@ -57,7 +58,6 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_with_app);
         /// gọi qua layout
-        FacebookSdk.sdkInitialize(getApplicationContext());
         animeBottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
         animeTop = AnimationUtils.loadAnimation(this,R.anim.fromtop);
         bouncein = AnimationUtils.loadAnimation(this,R.anim.bouncein);
@@ -125,10 +125,11 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
         }
     }
     private void handleSignInResult(GoogleSignInResult result){
-        GoogleSignInAccount account = result.getSignInAccount();
-        idToken = account.getIdToken();
-        name = account.getDisplayName();
-        email = account.getEmail();
+        GoogleSignInAccount acc = result.getSignInAccount();
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acc.getId());
+        idToken = acc.getIdToken();
+        name = acc.getDisplayName();
+        email = acc.getEmail();
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken,null);
         firebaseAuthWithGoogle(credential);
     }

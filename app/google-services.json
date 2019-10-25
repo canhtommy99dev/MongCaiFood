@@ -81,6 +81,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "445345929603-f7n5c3po89ndjh5vf58gu1snqen0cphb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexmedia.mongcaifood",
+            "certificate_hash": "b45c577c8ffc3e43407e6dc3e84f1328a4c7991c"
+          }
+        },
+        {
           "client_id": "445345929603-gk4cl04d5o5otcl2i3480qnokkj00m3k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
