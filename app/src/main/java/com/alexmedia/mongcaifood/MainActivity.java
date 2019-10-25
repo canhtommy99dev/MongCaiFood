@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     CircleImageView imgAvater;
     private GoogleApiClient googleApiClient;
     private GoogleSignInOptions gso;
+    private static final String IMAGE = "Image";
+    Intent intent;
+    Fragment fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 .enableAutoManage(this,this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
+        intent = getIntent();
     }
 
     @Override
@@ -131,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }catch (NullPointerException e){
                 Toast.makeText(getApplicationContext(),"image not found",Toast.LENGTH_LONG).show();
             }
+            intent.putExtra(IMAGE,account.getPhotoUrl());
 
         }else{
             gotoMainActivity();

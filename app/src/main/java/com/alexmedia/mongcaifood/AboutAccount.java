@@ -32,6 +32,8 @@ public class AboutAccount extends AppCompatActivity implements GoogleApiClient.O
     CircleImageView profileImage;
     private GoogleApiClient googleApiClient;
     private GoogleSignInOptions gso;
+    Intent  intent;
+    private static final String IMAGE = "Image";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class AboutAccount extends AppCompatActivity implements GoogleApiClient.O
         userEmail = findViewById(R.id.email);
         profileImage = findViewById(R.id.profileImage);
         back = findViewById(R.id.imgBACK);
+        intent = getIntent();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +102,7 @@ public class AboutAccount extends AppCompatActivity implements GoogleApiClient.O
             }catch (NullPointerException e){
                 Toast.makeText(getApplicationContext(),"image not found",Toast.LENGTH_LONG).show();
             }
-
+            intent.putExtra(IMAGE,account.getPhotoUrl());
         }else{
             gotoMainActivity();
         }

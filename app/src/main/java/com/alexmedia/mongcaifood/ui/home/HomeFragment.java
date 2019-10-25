@@ -2,6 +2,7 @@ package com.alexmedia.mongcaifood.ui.home;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -18,9 +19,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.alexmedia.mongcaifood.AboutAccount;
 import com.alexmedia.mongcaifood.AdapterCuaHang;
 import com.alexmedia.mongcaifood.ListDanhSach;
 import com.alexmedia.mongcaifood.LoginWithApp;
+import com.alexmedia.mongcaifood.MainActivity;
 import com.alexmedia.mongcaifood.R;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
@@ -56,7 +59,9 @@ public class HomeFragment extends Fragment {
     ListView lvChl;
     AdapterCuaHang cuaHang;
     ProgressBar br;
-
+    Context context;
+    Intent intent;
+    String image;
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -76,6 +81,7 @@ public class HomeFragment extends Fragment {
                 "https://firebasestorage.googleapis.com/v0/b/amthucmongcai.appspot.com/o/imag5.jpg?alt=media&token=5e14d856-3cdd-4f19-891a-15bf3d13d3c8",
                 "https://firebasestorage.googleapis.com/v0/b/amthucmongcai.appspot.com/o/imag6.jpg?alt=media&token=06c62604-d739-41fa-a074-ec093c4bce5d"
         };
+        intent = getActivity().getIntent();
         int num_of_pages = 6;
         for (int i = 0; i < num_of_pages; i++) {
             FlipperView v = new FlipperView(getContext());
@@ -117,7 +123,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
         return view;
     }
 }

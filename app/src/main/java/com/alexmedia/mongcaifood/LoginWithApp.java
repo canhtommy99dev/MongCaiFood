@@ -126,7 +126,7 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
     }
     private void handleSignInResult(GoogleSignInResult result){
         GoogleSignInAccount acc = result.getSignInAccount();
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acc.getId());
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acc.getIdToken());
         idToken = acc.getIdToken();
         name = acc.getDisplayName();
         email = acc.getEmail();

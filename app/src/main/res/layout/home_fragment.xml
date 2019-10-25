@@ -20,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
-        <include layout="@layout/toolbarlayout"/>
     </technolifestyle.com.imageslider.FlipperLayout>
 
     <TextView
