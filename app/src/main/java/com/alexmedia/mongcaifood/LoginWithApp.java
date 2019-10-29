@@ -127,11 +127,10 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
     private void handleSignInResult(GoogleSignInResult result){
         GoogleSignInAccount acc = result.getSignInAccount();
         if(acc != null){
-            idToken = acc.getIdToken().toString();
-            name = acc.getDisplayName().toString();
-            email = acc.getEmail().toString();
+            idToken = acc.getIdToken();
+            name = acc.getDisplayName();
+            email = acc.getEmail();
         }
-
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken,null);
         firebaseAuthWithGoogle(credential);
     }

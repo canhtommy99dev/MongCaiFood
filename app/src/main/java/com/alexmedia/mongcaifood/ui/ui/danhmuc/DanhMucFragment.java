@@ -55,8 +55,8 @@ public class DanhMucFragment extends Fragment {
         array.add(new ViewPagerModel(R.drawable.anvatc,"Ăn Vặt"));
         array.add(new ViewPagerModel(R.drawable.launuong,"Lẩu Nướng"));
         array.add(new ViewPagerModel(R.drawable.beer,"Nhậu"));
-        array.add(new ViewPagerModel(R.drawable.drink,"Đồ Uống"));
-        array.add(new ViewPagerModel(R.drawable.maker,"Bản Đồ"));
+        array.add(new ViewPagerModel(R.drawable.icondrink,"Đồ Uống"));
+        array.add(new ViewPagerModel(R.drawable.ic_map_black_24dp,"Bản Đồ"));
         adapter = new PagerApda(array,inflater,getContext());
         viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
