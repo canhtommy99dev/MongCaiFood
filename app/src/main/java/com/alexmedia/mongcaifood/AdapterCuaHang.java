@@ -58,7 +58,7 @@ public class AdapterCuaHang extends BaseAdapter {
         }else {
             holder = (ViewHolder) rowview.getTag();
         }
-        holder.ttxtench.setText(listDanhSaches.get(position).id);
+        holder.ttxtench.setText(listDanhSaches.get(position).tench);
         holder.ttxtDiahi.setText(listDanhSaches.get(position).diachi);
         holder.ttxtFacebook.setText(listDanhSaches.get(position).facebook);
         Glide.with(context).load(listDanhSaches.get(position).image).centerCrop().into(holder.imgCuaHang);

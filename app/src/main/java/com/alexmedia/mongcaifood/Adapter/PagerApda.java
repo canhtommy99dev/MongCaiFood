@@ -55,7 +55,6 @@ public class PagerApda extends PagerAdapter {
         title = view.findViewById(R.id.titlemc);
         img.setImageResource(models.get(position).getImage());
         title.setText(models.get(position).getTitle());
-
         container.addView(view,0);
         return view;
     }

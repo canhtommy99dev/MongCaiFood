@@ -68,6 +68,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
         intent = getIntent();
+        btnQRCode = findViewById(R.id.camerakit);
+        btnQRCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Camerakit.class));
+            }
+        });
     }
 
     @Override
