@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.alexmedia.mongcaifood">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -15,7 +16,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -24,12 +25,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Camerakit"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="com.google.firebase.ml.vision.DEFENDENCIES"
-                android:value="barcode"/>
-        </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,8 +39,15 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".BanDo"
-            android:label="@string/title_activity_ban_do" />
+            android:name=".MapChiDuongMC"
+            android:label="@string/title_activity_map_chi_duong_mc"></activity>
+        <activity
+            android:name=".Camerakit"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="com.google.firebase.ml.vision.DEFENDENCIES"
+                android:value="barcode" />
+        </activity>
         <activity android:name=".AboutAccount" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginWithApp" />

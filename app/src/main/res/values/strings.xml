@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MongCaiFood</string>
+    <string name="app_name">Móng Cái Foody</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -8,4 +8,6 @@
     <string name="facebook_app_id">2509585939365338</string>
     <string name="fb_login_protocol_scheme">fb2509585939365338</string>
     <string name="title_activity_ban_do">Map</string>
+    <string name="title_activity_map_chi_duong">Map</string>
+    <string name="title_activity_map_chi_duong_mc">Map</string>
 </resources>

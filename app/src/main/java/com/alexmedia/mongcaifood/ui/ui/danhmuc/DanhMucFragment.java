@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.alexmedia.mongcaifood.Adapter.PagerApda;
-import com.alexmedia.mongcaifood.BanDo;
+import com.alexmedia.mongcaifood.MapChiDuongMC;
 import com.alexmedia.mongcaifood.Model.ViewPagerModel;
 import com.alexmedia.mongcaifood.R;
 
@@ -125,7 +125,7 @@ public class DanhMucFragment extends Fragment {
                     Toast.makeText(getContext(), "7", Toast.LENGTH_SHORT).show();
                 }
                 if (viewPager.getCurrentItem()==8) {
-                    Intent intent = new Intent(getContext(), BanDo.class);
+                    Intent intent = new Intent(getContext(), MapChiDuongMC.class);
                     startActivity(intent);
                 }
             }
