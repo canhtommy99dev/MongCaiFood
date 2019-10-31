@@ -1,26 +1,28 @@
 package com.alexmedia.mongcaifood;
 
 public class ListDanhSach {
-    String id,tench,diachi,thoigian,tinhtrangship,facebook,create,timecreate,image,danhmuc;
+    String id,tench,diachi,thoigian,sodt,tinhtrangship,facebook,create,timecreate,image,danhmuc;
     Double latitude,longitude;
 
     public ListDanhSach() {
     }
 
-    public ListDanhSach(String id, String tench, String diachi, String thoigian, String tinhtrangship, String facebook, String create, String timecreate, String image, String danhmuc, Double latitude, Double longitude) {
+    public ListDanhSach(String id, String tench, String diachi, String thoigian, String tinhtrangship, String facebook, String create, String timecreate, String image, String danhmuc, Double latitude, Double longitude,String sodt) {
 
         this.id = id;
         this.tench = tench;
         this.diachi = diachi;
         this.thoigian = thoigian;
+        this.sodt = sodt;
         this.tinhtrangship = tinhtrangship;
         this.facebook = facebook;
         this.create = create;
         this.timecreate = timecreate;
-        this.image = image;
-        this.danhmuc = danhmuc;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.image = image;
+        this.danhmuc = danhmuc;
+
     }
 
     public String getId() {
@@ -54,6 +56,13 @@ public class ListDanhSach {
     public void setThoigian(String thoigian) {
         this.thoigian = thoigian;
     }
+    public String getSodt() {
+        return sodt;
+    }
+
+    public void setSodt(String sodt) {
+        this.sodt = sodt;
+    }
 
     public String getTinhtrangship() {
         return tinhtrangship;
@@ -86,6 +95,7 @@ public class ListDanhSach {
     public void setTimecreate(String timecreate) {
         this.timecreate = timecreate;
     }
+
 
     public String getImage() {
         return image;

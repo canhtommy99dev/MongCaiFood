@@ -75,6 +75,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 startActivity(new Intent(getApplicationContext(),Camerakit.class));
             }
         });
+        btnSeacrh = findViewById(R.id.btnsearch);
+        btnSeacrh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),TimKiemActivity.class));
+            }
+        });
     }
 
     @Override
