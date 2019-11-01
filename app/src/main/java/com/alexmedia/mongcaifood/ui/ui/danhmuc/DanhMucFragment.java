@@ -18,8 +18,16 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.alexmedia.mongcaifood.Adapter.PagerApda;
+import com.alexmedia.mongcaifood.AnSangActivty;
+import com.alexmedia.mongcaifood.AnToiActivity;
+import com.alexmedia.mongcaifood.AnTruaActivity;
+import com.alexmedia.mongcaifood.AnVatActivty;
+import com.alexmedia.mongcaifood.DoUongActivity;
+import com.alexmedia.mongcaifood.LauNuongActivity;
 import com.alexmedia.mongcaifood.MapChiDuongMC;
 import com.alexmedia.mongcaifood.Model.ViewPagerModel;
+import com.alexmedia.mongcaifood.NhaHangActivity;
+import com.alexmedia.mongcaifood.NhauActivity;
 import com.alexmedia.mongcaifood.R;
 
 import java.util.ArrayList;
@@ -101,28 +109,36 @@ public class DanhMucFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (viewPager.getCurrentItem()==0) {
-                    Toast.makeText(getContext(), "0", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(),AnSangActivty.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==1) {
-                    Toast.makeText(getContext(), "1", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), AnTruaActivity.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==2) {
-                    Toast.makeText(getContext(), "2", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), AnToiActivity.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==3) {
-                    Toast.makeText(getContext(), "3", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), NhaHangActivity.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==4) {
-                    Toast.makeText(getContext(), "4", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), AnVatActivty.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==5) {
-                    Toast.makeText(getContext(), "5", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), LauNuongActivity.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==6) {
-                    Toast.makeText(getContext(), "6", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), NhauActivity.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==7) {
-                    Toast.makeText(getContext(), "7", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), DoUongActivity.class);
+                    startActivity(intent);
                 }
                 if (viewPager.getCurrentItem()==8) {
                     Intent intent = new Intent(getContext(), MapChiDuongMC.class);

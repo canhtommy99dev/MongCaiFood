@@ -128,4 +128,5 @@ public class ListDanhSach {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
 }

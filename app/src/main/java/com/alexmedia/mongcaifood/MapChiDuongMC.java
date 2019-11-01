@@ -6,6 +6,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -14,6 +16,7 @@ import android.location.LocationListener;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -55,7 +58,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class MapChiDuongMC extends FragmentActivity implements OnMapReadyCallback, LocationListener,GoogleMap.OnMarkerClickListener{
 
     private GoogleMap mMap;
-    ImageView imgBack;
+    ImageView imgBack,imgHDSD;
     ChildEventListener mChildevent;
     DatabaseReference daQuanLy;
     Marker marker;
@@ -84,6 +87,13 @@ public class MapChiDuongMC extends FragmentActivity implements OnMapReadyCallbac
         daQuanLy = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         daQuanLy.push().setValue(marker);
         mapFragment.getMapAsync(this);
+        imgHDSD = findViewById(R.id.hdsd);
+        imgHDSD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createDialog();
+            }
+        });
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -192,5 +202,25 @@ public class MapChiDuongMC extends FragmentActivity implements OnMapReadyCallbac
                 }
                 break;
         }
+    }
+    public void createDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.dialogsudung, null);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Hướng dẫn sử dụng chỉ đường");
+        alert.setView(alertLayout);
+        alert.setCancelable(false);
+
+        alert.setPositiveButton("Oke", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // code for matching password
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.show();
     }
 }

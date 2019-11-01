@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
             fli.addFlipperView(v);
             this.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         }
-        br = view.findViewById(R.id.progressBar2);
+        br = view.findViewById(R.id.pro111);
         lvChl = view.findViewById(R.id.lvDachSachCH);
         cCHMC = new ArrayList<>();
         docuahang = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");

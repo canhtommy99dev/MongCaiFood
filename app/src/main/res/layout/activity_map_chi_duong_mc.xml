@@ -17,22 +17,23 @@
             android:src="@drawable/ic_arrow_back_black_24dp" />
 
         <TextView
-            android:layout_marginTop="4dp"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="50dp"
             android:id="@+id/txtBanDo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
             android:text="Bản Đồ"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/color9"
             android:textSize="30dp" />
-<!--        <SearchView-->
-<!--            android:inputType="text"-->
-<!--            android:hint="Nhập tìm cửa hàng"-->
-<!--            android:id="@+id/TFaddress"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="52dp"/>-->
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="150dp"
+            android:id="@+id/hdsd"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_import_contacts_black_24dp" />
     </RelativeLayout>
 
     <RelativeLayout
