@@ -3,8 +3,10 @@ package com.alexmedia.mongcaifood;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -27,7 +29,16 @@ public class LauNuongActivity extends AppCompatActivity {
     AdapterLauNuong adapterAnToi;
     ProgressBar progxuly7;
     List<ListDanhSach> array7;
-
+    Intent intent;
+    public static final String ID = "id";
+    public static final String TENCH = "tench";
+    public static final String ADDRESS = "diachi";
+    public static final String TIMEOPENEND = "time";
+    public static final String SODIENTHOAI = "thoigian";
+    public static final String SHIPTINHTRANG = "tinhtrangship";
+    public static final String FACEBOOK_CH = "facebook";
+    public static final String DANHMUC = "tench";
+    public static final String IMAGE = "image";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +61,23 @@ public class LauNuongActivity extends AppCompatActivity {
                 .orderByChild("danhmuc")
                 .equalTo("Lẩu Nướng");
         query1.addListenerForSingleValueEvent(valueEventListener);
+        intent = getIntent();
+        lvLauNuong.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListDanhSach listDanhSach = array7.get(position);
+                Intent intent = new Intent(getApplicationContext(), InfomationFoody.class);
+                intent.putExtra(ID, listDanhSach.getId());
+                intent.putExtra(TENCH, listDanhSach.getTench());
+                intent.putExtra(ADDRESS, listDanhSach.getDiachi());
+                intent.putExtra(TIMEOPENEND, listDanhSach.getThoigian());
+                intent.putExtra(SODIENTHOAI, listDanhSach.getSodt());
+                intent.putExtra(SHIPTINHTRANG, listDanhSach.getTinhtrangship());
+                intent.putExtra(FACEBOOK_CH, listDanhSach.getFacebook());
+                intent.putExtra(IMAGE, listDanhSach.getImage());
+                startActivity(intent);
+            }
+        });
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override

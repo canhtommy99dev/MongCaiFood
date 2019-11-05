@@ -3,10 +3,12 @@ package com.alexmedia.mongcaifood;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -32,8 +34,16 @@ public class TimKiemActivity extends AppCompatActivity {
     ProgressBar progBar;
     List<ListDanhSach> listDanhSach;
     EditText timCK;
-
-
+    public static final String ID = "id";
+    public static final String TENCH = "tench";
+    public static final String ADDRESS = "diachi";
+    public static final String TIMEOPENEND = "time";
+    public static final String SODIENTHOAI = "thoigian";
+    public static final String SHIPTINHTRANG = "tinhtrangship";
+    public static final String FACEBOOK_CH = "facebook";
+    public static final String DANHMUC = "tench";
+    public static final String IMAGE = "image";
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +63,23 @@ public class TimKiemActivity extends AppCompatActivity {
         adapterTimKiemCuaHang = new AdapterTimKiemCuaHang(TimKiemActivity.this,listDanhSach);
         lvCuaHang.setAdapter(adapterTimKiemCuaHang);
         dataBaiDang.addListenerForSingleValueEvent(valueEventListener);
-//        Query  query1 = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang")
-//                .orderByChild("danhmuc")
-//                .equalTo("Ăn Sáng");
-//        query1.addListenerForSingleValueEvent(valueEventListener);
+        intent = getIntent();
+        lvCuaHang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListDanhSach listDanhSach1 = listDanhSach.get(position);
+                Intent intent = new Intent(getApplicationContext(), InfomationFoody.class);
+                intent.putExtra(ID, listDanhSach1.getId());
+                intent.putExtra(TENCH, listDanhSach1.getTench());
+                intent.putExtra(ADDRESS, listDanhSach1.getDiachi());
+                intent.putExtra(TIMEOPENEND, listDanhSach1.getThoigian());
+                intent.putExtra(SODIENTHOAI, listDanhSach1.getSodt());
+                intent.putExtra(SHIPTINHTRANG, listDanhSach1.getTinhtrangship());
+                intent.putExtra(FACEBOOK_CH, listDanhSach1.getFacebook());
+                intent.putExtra(IMAGE, listDanhSach1.getImage());
+                startActivity(intent);
+            }
+        });
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.alexmedia.mongcaifood.AboutAccount;
 import com.alexmedia.mongcaifood.AdapterCuaHang;
+import com.alexmedia.mongcaifood.InfomationFoody;
 import com.alexmedia.mongcaifood.ListDanhSach;
 import com.alexmedia.mongcaifood.LoginWithApp;
 import com.alexmedia.mongcaifood.MainActivity;
@@ -62,6 +64,14 @@ public class HomeFragment extends Fragment {
     Context context;
     Intent intent;
     String image;
+    public static final String ID = "id";
+    public static final String TENCH = "tench";
+    public static final String ADDRESS = "diachi";
+    public static final String TIMEOPENEND = "time";
+    public static final String SODIENTHOAI = "thoigian";
+    public static final String SHIPTINHTRANG = "tinhtrangship";
+    public static final String FACEBOOK_CH = "facebook";
+    public static final String IMAGE = "image";
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -121,6 +131,22 @@ public class HomeFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        lvChl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListDanhSach listDanhSach = cCHMC.get(position);
+                Intent intent = new Intent(getActivity(), InfomationFoody.class);
+                intent.putExtra(ID, listDanhSach.getId());
+                intent.putExtra(TENCH, listDanhSach.getTench());
+                intent.putExtra(ADDRESS, listDanhSach.getDiachi());
+                intent.putExtra(TIMEOPENEND, listDanhSach.getThoigian());
+                intent.putExtra(SODIENTHOAI, listDanhSach.getSodt());
+                intent.putExtra(SHIPTINHTRANG, listDanhSach.getTinhtrangship());
+                intent.putExtra(FACEBOOK_CH, listDanhSach.getFacebook());
+                intent.putExtra(IMAGE, listDanhSach.getImage());
+                startActivity(intent);
             }
         });
         return view;
