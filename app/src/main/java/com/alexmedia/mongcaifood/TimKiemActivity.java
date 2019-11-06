@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +35,9 @@ public class TimKiemActivity extends AppCompatActivity {
     ProgressBar progBar;
     List<ListDanhSach> listDanhSach;
     SearchView searchViewTK;
+    TextView view1;
     EditText timCK;
+    String tenchtimkiem;
     public static final String ID = "id";
     public static final String TENCH = "tench";
     public static final String ADDRESS = "diachi";
@@ -64,6 +67,8 @@ public class TimKiemActivity extends AppCompatActivity {
         lvCuaHang.setAdapter(adapterTimKiemCuaHang);
         dataBaiDang.addListenerForSingleValueEvent(valueEventListener);
         intent = getIntent();
+        view1 = findViewById(R.id.cmm);
+        tenchtimkiem = intent.getStringExtra(Camerakit.TENCH);
         lvCuaHang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -80,6 +85,8 @@ public class TimKiemActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        searchViewTK.setQuery(tenchtimkiem,true);
+        searchViewTK.clearFocus();
         searchViewTK.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

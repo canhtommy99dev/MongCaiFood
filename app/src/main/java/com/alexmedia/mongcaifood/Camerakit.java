@@ -46,7 +46,8 @@ public class Camerakit extends AppCompatActivity {
     FirebaseVisionBarcodeDetector dectector;
     FirebaseVisionBarcodeDetectorOptions options;
     ImageView imgBack;
-
+    String textSearch;
+    public static final String TENCH = "tench";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,7 @@ public class Camerakit extends AppCompatActivity {
                 switch (value_type){
                     case FirebaseVisionBarcode.TYPE_TEXT:{
                         createDialog(item.getRawValue());
+                        textSearch = item.getRawValue();
                     }
                     break;
                     case FirebaseVisionBarcode.TYPE_URL:{
@@ -157,9 +159,18 @@ public class Camerakit extends AppCompatActivity {
                 .setPositiveButton("Oke", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                        Intent intent = new Intent(getApplicationContext(),TimKiemActivity.class);
+                        intent.putExtra(TENCH,textSearch);
+                        startActivity(intent);
                     }
-                });
+                }).setPositiveButton("Tìm Kiếm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getApplicationContext(),TimKiemActivity.class);
+                intent.putExtra(TENCH,textSearch);
+                startActivity(intent);
+            }
+        });
         AlertDialog dialog2 = builder.create();
         dialog2.show();
     }

@@ -16,8 +16,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/simpleSearchView">
-
     </SearchView>
+    <TextView
+        android:id="@+id/cmm"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30dp">
+
+    </TextView>
 
     <ListView
         android:id="@+id/lvTimKiem"
