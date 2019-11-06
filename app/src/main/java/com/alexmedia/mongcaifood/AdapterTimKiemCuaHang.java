@@ -58,4 +58,43 @@ public class AdapterTimKiemCuaHang extends ArrayAdapter<ListDanhSach> {
         Glide.with(activity).load(listDanhSach.image).centerCrop().into(imgAnhMc);
         return listItems;
     }
+
+    @NonNull
+    @Override
+    public Filter getFilter() {
+        return tench;
+    }
+
+    private Filter tench = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults results = new FilterResults();
+            List<ListDanhSach> listDanhSaches = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0){
+                listDanhSaches.addAll(modelImage);
+            }else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (ListDanhSach itemtench:modelImage){
+                    if (itemtench.getTench().toLowerCase().contains(filterPattern)){
+                        listDanhSaches.add(itemtench);
+                    }
+                }
+            }
+            results.values = listDanhSaches;
+            results.count = listDanhSaches.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            clear();
+            addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public CharSequence convertResultToString(Object resultValue) {
+            return ((ListDanhSach) resultValue).getTench();
+        }
+    };
 }

@@ -11,32 +11,13 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:src="@drawable/ic_arrow_back_black_24dp"/>
-    <androidx.cardview.widget.CardView
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="50dp"
+    <SearchView
+        android:paddingLeft="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp">
-        <EditText
-            android:textColor="#fff"
-            android:paddingLeft="15dp"
-            android:textColorHint="#fff"
-            android:background="#D81212"
-            android:id="@+id/editText2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:inputType="textPersonName"
-            android:hint="Name" />
-    </androidx.cardview.widget.CardView>
+        android:id="@+id/simpleSearchView">
 
-    <ImageView
-        android:layout_alignParentRight="true"
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/ic_search_black_24dp" />
+    </SearchView>
 
     <ListView
         android:id="@+id/lvTimKiem"

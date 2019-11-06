@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,20 +30,25 @@ import java.util.List;
 
 public class InfomationFoody extends AppCompatActivity {
 
-    String tench1,diachi1,timeopen,sodt1,fb1,ship1,image1;
+    String id,tench1,diachi1,timeopen,sodt1,fb1,ship1,image1;
     TextView txtdiachi,txtTimer,txtSdt,txtfb,ship;
     ImageView imgInfo;
     Intent intent;
-    DatabaseReference databaseAnhDoDuLieuImage;
+    DatabaseReference databaseAnhDoDuLieuImage,databaseComment;
     List<ModelInfoCuaHang> mc1;
-    ListView recyclerView1;
+    List<ModelComment> comments;
     AdapterCuaHangInfomation infomation;
+    AdapterComment adapterComment;
+    Button btncomment;
+    RecyclerView recyclerView,recyclerView1;
+    public static final String ID = "id";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infomation_foody);
         intent = getIntent();
         databaseAnhDoDuLieuImage = FirebaseDatabase.getInstance().getReference("ImageAlbum").child(intent.getStringExtra(HomeFragment.ID));
+        databaseComment = FirebaseDatabase.getInstance().getReference("CommentBaiViet").child(intent.getStringExtra(HomeFragment.ID));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() !=null) {
@@ -56,6 +62,7 @@ public class InfomationFoody extends AppCompatActivity {
             }
         });
         mc1 = new ArrayList<>();
+        comments = new ArrayList<>();
         ///
         imgInfo = findViewById(R.id.iv_detail);
         txtdiachi = findViewById(R.id.txtaddress);
@@ -64,7 +71,7 @@ public class InfomationFoody extends AppCompatActivity {
         txtfb = findViewById(R.id.txtFacebook);
         ship = findViewById(R.id.txtShipDoAn);
         ///
-
+        id = intent.getStringExtra(HomeFragment.ID);
         tench1 = intent.getStringExtra(HomeFragment.TENCH);
         diachi1 = intent.getStringExtra(HomeFragment.ADDRESS);
         timeopen = intent.getStringExtra(HomeFragment.TIMEOPENEND);
@@ -94,12 +101,27 @@ public class InfomationFoody extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+        btncomment = findViewById(R.id.btnComment);
+        btncomment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),CommentActivity.class);
+                intent.putExtra(ID,id);
+                startActivity(intent);
+
+            }
+        });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         infomation = new AdapterCuaHangInfomation(this,mc1);
         recyclerView.setAdapter(infomation);
         recyclerView.setLayoutManager(linearLayoutManager);
         databaseAnhDoDuLieuImage.addValueEventListener(valueEventListener);
+
+        adapterComment = new AdapterComment(InfomationFoody.this,comments);
+        recyclerView1 = findViewById(R.id.lvcommon);
+        recyclerView1.setAdapter(adapterComment);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -117,4 +139,25 @@ public class InfomationFoody extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        databaseComment.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                comments.clear();
+                for (DataSnapshot lc1x:dataSnapshot.getChildren()){
+                    ModelComment modelComment = lc1x.getValue(ModelComment.class);
+                    comments.add(modelComment);
+                    adapterComment.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }

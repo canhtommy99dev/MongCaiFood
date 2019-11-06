@@ -50,6 +50,7 @@
         android:text=" -- Facebook:"
         android:textColor="#fff"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/txtShipDoAn"
         android:layout_width="match_parent"
@@ -58,6 +59,7 @@
         android:text=" -- Ship đồ ăn:"
         android:textColor="#fff"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/textView8c"
         android:layout_width="match_parent"
@@ -66,12 +68,36 @@
         android:text="Một Số Ảnh Về Quán"
         android:textColor="#fff"
         android:textSize="20sp" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round"
+        android:text="Thêm Bình Luận"
+        android:textColor="#fff" />
+
+    <TextView
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comment Đánh Giá" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lvcommon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
-        android:orientation="horizontal">
-
+        android:orientation="vertical">
     </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

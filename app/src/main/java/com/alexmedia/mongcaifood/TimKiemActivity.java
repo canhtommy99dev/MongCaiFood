@@ -33,6 +33,7 @@ public class TimKiemActivity extends AppCompatActivity {
     AdapterTimKiemCuaHang adapterTimKiemCuaHang;
     ProgressBar progBar;
     List<ListDanhSach> listDanhSach;
+    SearchView searchViewTK;
     EditText timCK;
     public static final String ID = "id";
     public static final String TENCH = "tench";
@@ -41,7 +42,6 @@ public class TimKiemActivity extends AppCompatActivity {
     public static final String SODIENTHOAI = "thoigian";
     public static final String SHIPTINHTRANG = "tinhtrangship";
     public static final String FACEBOOK_CH = "facebook";
-    public static final String DANHMUC = "tench";
     public static final String IMAGE = "image";
     Intent intent;
     @Override
@@ -49,7 +49,7 @@ public class TimKiemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tim_kiem);
         btnBack = findViewById(R.id.btnBacl2);
-
+        searchViewTK = findViewById(R.id.simpleSearchView);
         lvCuaHang = findViewById(R.id.lvTimKiem);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +78,18 @@ public class TimKiemActivity extends AppCompatActivity {
                 intent.putExtra(FACEBOOK_CH, listDanhSach1.getFacebook());
                 intent.putExtra(IMAGE, listDanhSach1.getImage());
                 startActivity(intent);
+            }
+        });
+        searchViewTK.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapterTimKiemCuaHang.getFilter().filter(newText);
+                return true;
             }
         });
     }

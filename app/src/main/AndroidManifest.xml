@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfomationFoody"></activity>
+        <activity android:name=".CommentActivity"></activity>
+        <activity android:name=".InfomationFoody" />
         <activity android:name=".DoUongActivity" />
         <activity android:name=".LauNuongActivity" />
         <activity android:name=".NhauActivity" />
