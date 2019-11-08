@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,6 +64,8 @@ public class AdapterCuaHang extends BaseAdapter {
         holder.ttxtDiahi.setText(listDanhSaches.get(position).diachi);
         holder.ttxtFacebook.setText(listDanhSaches.get(position).facebook);
         Glide.with(context).load(listDanhSaches.get(position).image).centerCrop().into(holder.imgCuaHang);
+        Animation  animation = AnimationUtils.loadAnimation(context,R.anim.bouncein);
+        rowview.startAnimation(animation);
         return rowview;
     }
 }

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +54,8 @@ public class AdapterDoUong extends ArrayAdapter<ListDanhSach> {
         txtFacebook.setText(listDanhSach.facebook);
         txtSodt.setText(listDanhSach.sodt);
         Glide.with(activity).load(listDanhSach.image).centerCrop().into(imgAnhMc);
+        Animation animation = AnimationUtils.loadAnimation(activity,R.anim.bouncein);
+        listItems.startAnimation(animation);
         return listItems;
     }
 }
