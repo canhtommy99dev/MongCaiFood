@@ -1,6 +1,7 @@
 package com.alexmedia.mongcaifood.ui.ui.zalo;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,18 +34,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class InstagramLoginandexit extends Fragment {
 
-    ImageView btnLogout,btnAbout,btnShareApp;
-    CircleImageView imgAvatar;
-    TextView username,userEmail;
-    GoogleApiClient googleApiClient;
-    GoogleSignInOptions googleSignInOptions;
-    FirebaseUser user;
-
+    TextView txtabbout;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.instagram_fragment,container,false);
-        getActivity().setTitle("Account");
-
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/uvnsaigon.ttf");
+        txtabbout = view.findViewById(R.id.txtAboutDeveloper);
+        txtabbout.setTypeface(typeface);
         return view;
     }
 }

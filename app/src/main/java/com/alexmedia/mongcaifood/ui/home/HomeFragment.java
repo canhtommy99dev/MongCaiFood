@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alexmedia.mongcaifood.AboutAccount;
@@ -64,6 +66,7 @@ public class HomeFragment extends Fragment {
     Context context;
     Intent intent;
     String image;
+    TextView textViewDS;
     public static final String ID = "id";
     public static final String TENCH = "tench";
     public static final String ADDRESS = "diachi";
@@ -83,6 +86,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment,container,false);
         fli =view.findViewById(R.id.fli);
         getActivity().setTitle("Trang Chủ");
+
         String url[] =new  String[]{
                 "https://firebasestorage.googleapis.com/v0/b/amthucmongcai.appspot.com/o/imag1.jpg?alt=media&token=612841dc-63a5-4cc2-928d-362045b8d4fb",
                 "https://firebasestorage.googleapis.com/v0/b/amthucmongcai.appspot.com/o/imag2.jpg?alt=media&token=d6cfa81f-a199-40b6-933d-3ecfdfcce0cd",
@@ -110,6 +114,9 @@ public class HomeFragment extends Fragment {
             fli.addFlipperView(v);
             this.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         }
+        textViewDS = view.findViewById(R.id.txtDanhSachCuaHang);
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/uvnsaigon.ttf");
+        textViewDS.setTypeface(typeface);
         br = view.findViewById(R.id.pro111);
         lvChl = view.findViewById(R.id.lvDachSachCH);
         cCHMC = new ArrayList<>();

@@ -9,6 +9,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -76,6 +77,9 @@ public class MapChiDuongMC extends FragmentActivity implements OnMapReadyCallbac
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        txtBanDo = findViewById(R.id.txtBanDo);
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        txtBanDo.setTypeface(typeface);
 
         imgBack = findViewById(R.id.imgBack2);
         imgBack.setOnClickListener(new View.OnClickListener() {

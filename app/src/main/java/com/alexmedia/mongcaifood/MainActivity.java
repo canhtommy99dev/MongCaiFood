@@ -1,11 +1,18 @@
 package com.alexmedia.mongcaifood;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +33,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -47,6 +53,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        fontc = findViewById(R.id.txtMongCaiTitle);
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        fontc.setTypeface(typeface);
+        if (checkNetwork()){
+
+        }else if (!checkNetwork())
+        {
+            createDialog();
+        }
 //        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 //                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
 //                .build();
@@ -159,5 +174,37 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private void gotoMainActivity(){
         Intent intent=new Intent(this,LoginWithApp.class);
         startActivity(intent);
+    }
+    public void createDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.dialogerror, null);
+        android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(this);
+        Button btnExitConnect = alertLayout.findViewById(R.id.btnExit);
+        btnExitConnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
+            }
+        });
+        alert.setView(alertLayout);
+        alert.setCancelable(false);
+        AlertDialog dialog = alert.create();
+        dialog.show();
+    }
+    private boolean checkNetwork(){
+        boolean wifiConnect = false;
+        boolean mobileConnected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeInfo != null && activeInfo.isConnected()){
+            wifiConnect = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
+            mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+            if (wifiConnect){
+                wifiConnect = true;
+            }else if (mobileConnected){
+                mobileConnected = true;
+            }
+        }
+        return wifiConnect||mobileConnected;
     }
 }

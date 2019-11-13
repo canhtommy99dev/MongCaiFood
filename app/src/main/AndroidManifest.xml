@@ -7,6 +7,7 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -25,17 +26,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CommentActivity"></activity>
-        <activity android:name=".InfomationFoody" />
-        <activity android:name=".DoUongActivity" />
-        <activity android:name=".LauNuongActivity" />
-        <activity android:name=".NhauActivity" />
-        <activity android:name=".AnVatActivty" />
-        <activity android:name=".NhaHangActivity" />
-        <activity android:name=".AnToiActivity" />
-        <activity android:name=".AnTruaActivity" />
-        <activity android:name=".AnSangActivty" />
-        <activity android:name=".TimKiemActivity" />
+        <activity android:name=".KhamPha.ChoMongCaiActivity"></activity>
+        <activity android:name=".Tab2ThongBao" />
+        <activity android:name=".Tab1KhamPha" />
+        <activity android:name=".CommentActivity" />
+        <activity
+            android:name=".InfomationFoody"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoUongActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LauNuongActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NhauActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AnVatActivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NhaHangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AnToiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AnTruaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AnSangActivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TimKiemActivity"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -58,10 +82,18 @@
                 android:name="com.google.firebase.ml.vision.DEFENDENCIES"
                 android:value="barcode" />
         </activity>
-        <activity android:name=".AboutAccount" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginWithApp" />
-        <activity android:name=".SplashTimer">
+        <activity
+            android:name=".AboutAccount"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginWithApp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashTimer"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,7 +103,9 @@
         <activity android:name=".ThongBao" />
         <activity android:name=".ui.DanhMuc" />
         <activity android:name=".Home" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

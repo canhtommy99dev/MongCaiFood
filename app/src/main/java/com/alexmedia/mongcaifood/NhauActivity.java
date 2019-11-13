@@ -3,11 +3,13 @@ package com.alexmedia.mongcaifood;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +29,7 @@ public class NhauActivity extends AppCompatActivity {
     AdapterNhau adapterNhau;
     ProgressBar progxuly6;
     List<ListDanhSach> array6;
+    TextView txtAnSang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,9 @@ public class NhauActivity extends AppCompatActivity {
                 finish();
             }
         });
+        txtAnSang = findViewById(R.id.txtNhau);
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        txtAnSang.setTypeface(typeface);
         databaseNhau = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         progxuly6 = findViewById(R.id.progLoadMa6);
         array6 = new ArrayList<>();

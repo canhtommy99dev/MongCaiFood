@@ -4,14 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +77,12 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
         btnGoogle.startAnimation(float_in);
         imgIntro.startAnimation(bouncein);
         mAuth = FirebaseAuth.getInstance();
+        if (checkNetwork()){
+
+        }else if (!checkNetwork())
+        {
+            createDialog();
+        }
         ///  gọi set chung
         //gọi animation
         //google signin
@@ -176,5 +192,39 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
     @Override
     public void onClick(View v) {
 
+    }
+    public void createDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.dialogerror, null);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setView(alertLayout);
+        alert.setCancelable(false);
+        Button btnExitConnect = alertLayout.findViewById(R.id.btnExit);
+        btnExitConnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.show();
+    }
+    private boolean checkNetwork(){
+        boolean wifiConnect = false;
+        boolean mobileConnected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeInfo != null && activeInfo.isConnected()){
+            wifiConnect = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
+            mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+            if (wifiConnect){
+                wifiConnect = true;
+                Toast.makeText(this, "Kết nối mạng wifi", Toast.LENGTH_SHORT).show();
+            }else if (mobileConnected){
+                mobileConnected = true;
+                Toast.makeText(this, "Kết nối mạng 3G/4G", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return wifiConnect||mobileConnected;
     }
 }

@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +41,7 @@ public class AnTruaActivity extends AppCompatActivity {
     public static final String FACEBOOK_CH = "facebook";
     public static final String DANHMUC = "tench";
     public static final String IMAGE = "image";
+    TextView txtAnSang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,9 @@ public class AnTruaActivity extends AppCompatActivity {
                 finish();
             }
         });
+        txtAnSang = findViewById(R.id.txtAnTrua);
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        txtAnSang.setTypeface(typeface);
         databaseAnTrua = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         progxuly = findViewById(R.id.progLoadMa66);
         array1 = new ArrayList<>();

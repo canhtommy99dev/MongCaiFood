@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AboutAccount extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     Button logoutBtn;
     ImageView back;
-    TextView userName,userEmail;
+    TextView userName,userEmail,txtMmc;
     CircleImageView profileImage;
     private GoogleApiClient googleApiClient;
     private GoogleSignInOptions gso;
@@ -43,7 +44,12 @@ public class AboutAccount extends AppCompatActivity implements GoogleApiClient.O
         userEmail = findViewById(R.id.email);
         profileImage = findViewById(R.id.profileImage);
         back = findViewById(R.id.imgBACK);
+        txtMmc = findViewById(R.id.txtMCC2);
         intent = getIntent();
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        userName.setTypeface(typeface);
+        userEmail.setTypeface(typeface);
+        txtMmc.setTypeface(typeface);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
