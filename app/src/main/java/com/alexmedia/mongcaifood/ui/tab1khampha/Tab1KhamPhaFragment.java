@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.alexmedia.mongcaifood.KhamPha.ChoMongCaiActivity;
+import com.alexmedia.mongcaifood.Activity.ChoMongCaiActivity;
 import com.alexmedia.mongcaifood.R;
 
 public class Tab1KhamPhaFragment extends Fragment {

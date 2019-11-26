@@ -3,10 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageCeater"
+        android:src="@drawable/ic_image_black_24dp"></ImageView>
     <TextView
+        android:id="@+id/textGioithieu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chợ Móng Cái gồm có ba khu được chia thành khu chợ trung tâm, chợ Móng Cái 2 và chợ Móng Cái 3. Ở khu chợ Móng Cái – Trà Cổ chỉ họp từ buổi sáng đến tầm trưa là tan chợ. Các mặt hàng tại chợ khá là phong phú và đa dạng với các mặt hàng được nhập từ Trung Quốc bao gồm quần áo, giày dép, chăn màn, đồ điện tử, đồ chơi trẻ em, bánh kẹo, các loại hoa quả…Ngoài ra, du khách có thể mua các mặt hàng khác của Việt Nam như các loại hải sản tươi sống hoặc đông lạnh, các loại nông sản như chè, cà phê, hồ tiêu…">
+        android:text="Text Application">
     </TextView>
     <RelativeLayout
         android:layout_width="wrap_content"

@@ -2,14 +2,12 @@ package com.alexmedia.mongcaifood;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alexmedia.mongcaifood.Activity.AboutAccount;
+import com.alexmedia.mongcaifood.Activity.Camerakit;
+import com.alexmedia.mongcaifood.Activity.TimKiemActivity;
+import com.alexmedia.mongcaifood.Activity.TkActivityApplication;
 import com.alexmedia.mongcaifood.ui.home.HomeFragment;
 import com.alexmedia.mongcaifood.ui.thongbao.ThongBaoFragment;
 import com.alexmedia.mongcaifood.ui.ui.danhmuc.DanhMucFragment;
@@ -34,7 +36,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         imgAvater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),AboutAccount.class));
+                startActivity(new Intent(getApplicationContext(), AboutAccount.class));
             }
         });
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -87,14 +88,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         btnQRCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Camerakit.class));
+                startActivity(new Intent(getApplicationContext(), Camerakit.class));
             }
         });
         btnSeacrh = findViewById(R.id.btnsearch);
         btnSeacrh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),TimKiemActivity.class));
+                startActivity(new Intent(getApplicationContext(), TkActivityApplication.class));
             }
         });
     }

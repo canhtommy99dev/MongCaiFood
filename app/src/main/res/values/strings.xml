@@ -10,4 +10,5 @@
     <string name="title_activity_ban_do">Map</string>
     <string name="title_activity_map_chi_duong">Map</string>
     <string name="title_activity_map_chi_duong_mc">Map</string>
+    <string name="transition">transit</string>
 </resources>

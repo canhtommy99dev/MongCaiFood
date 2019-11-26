@@ -15,19 +15,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.alexmedia.mongcaifood.Adapter.PagerApda;
-import com.alexmedia.mongcaifood.AnSangActivty;
-import com.alexmedia.mongcaifood.AnToiActivity;
-import com.alexmedia.mongcaifood.AnTruaActivity;
-import com.alexmedia.mongcaifood.AnVatActivty;
-import com.alexmedia.mongcaifood.DoUongActivity;
-import com.alexmedia.mongcaifood.LauNuongActivity;
-import com.alexmedia.mongcaifood.MapChiDuongMC;
+import com.alexmedia.mongcaifood.Activity.AnSangActivty;
+import com.alexmedia.mongcaifood.Activity.AnToiActivity;
+import com.alexmedia.mongcaifood.Activity.AnTruaActivity;
+import com.alexmedia.mongcaifood.Activity.AnVatActivty;
+import com.alexmedia.mongcaifood.Activity.DoUongActivity;
+import com.alexmedia.mongcaifood.Activity.LauNuongActivity;
+import com.alexmedia.mongcaifood.Activity.MapChiDuongMC;
 import com.alexmedia.mongcaifood.Model.ViewPagerModel;
-import com.alexmedia.mongcaifood.NhaHangActivity;
-import com.alexmedia.mongcaifood.NhauActivity;
+import com.alexmedia.mongcaifood.Activity.NhaHangActivity;
+import com.alexmedia.mongcaifood.Activity.NhauActivity;
 import com.alexmedia.mongcaifood.R;
 
 import java.util.ArrayList;

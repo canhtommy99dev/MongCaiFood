@@ -26,39 +26,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KhamPha.ChoMongCaiActivity"></activity>
+        <activity android:name=".Activity.TkActivityApplication"></activity>
+        <activity android:name=".Activity.ImageFullScreen" />
+        <activity android:name=".Activity.ChoMongCaiActivity" />
         <activity android:name=".Tab2ThongBao" />
         <activity android:name=".Tab1KhamPha" />
-        <activity android:name=".CommentActivity" />
+        <activity android:name=".Activity.CommentActivity" />
         <activity
-            android:name=".InfomationFoody"
+            android:name=".Activity.InfomationFoody"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DoUongActivity"
+            android:name=".Activity.DoUongActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LauNuongActivity"
+            android:name=".Activity.LauNuongActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".NhauActivity"
+            android:name=".Activity.NhauActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AnVatActivty"
+            android:name=".Activity.AnVatActivty"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".NhaHangActivity"
+            android:name=".Activity.NhaHangActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AnToiActivity"
+            android:name=".Activity.AnToiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AnTruaActivity"
+            android:name=".Activity.AnTruaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AnSangActivty"
+            android:name=".Activity.AnSangActivty"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TimKiemActivity"
+            android:name=".Activity.TimKiemActivity"
             android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -73,17 +75,17 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapChiDuongMC"
+            android:name=".Activity.MapChiDuongMC"
             android:label="@string/title_activity_map_chi_duong_mc" />
         <activity
-            android:name=".Camerakit"
+            android:name=".Activity.Camerakit"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="com.google.firebase.ml.vision.DEFENDENCIES"
                 android:value="barcode" />
         </activity>
         <activity
-            android:name=".AboutAccount"
+            android:name=".Activity.AboutAccount"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterActivity"

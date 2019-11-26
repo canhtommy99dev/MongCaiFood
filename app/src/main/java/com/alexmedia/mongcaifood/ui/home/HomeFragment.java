@@ -1,6 +1,7 @@
 package com.alexmedia.mongcaifood.ui.home;
 
-import androidx.lifecycle.ViewModelProviders;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,24 +21,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.alexmedia.mongcaifood.AboutAccount;
-import com.alexmedia.mongcaifood.AdapterCuaHang;
-import com.alexmedia.mongcaifood.InfomationFoody;
-import com.alexmedia.mongcaifood.ListDanhSach;
-import com.alexmedia.mongcaifood.LoginWithApp;
-import com.alexmedia.mongcaifood.MainActivity;
+import com.alexmedia.mongcaifood.Adapter.AdapterCuaHang;
+import com.alexmedia.mongcaifood.Activity.InfomationFoody;
+import com.alexmedia.mongcaifood.Model.ListDanhSach;
 import com.alexmedia.mongcaifood.R;
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.OptionalPendingResult;
-import com.google.android.gms.common.api.ResultCallback;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -145,6 +135,8 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListDanhSach listDanhSach = cCHMC.get(position);
                 Intent intent = new Intent(getActivity(), InfomationFoody.class);
+                String transitionName = getString(R.string.transition);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),view,transitionName);
                 intent.putExtra(ID, listDanhSach.getId());
                 intent.putExtra(TENCH, listDanhSach.getTench());
                 intent.putExtra(ADDRESS, listDanhSach.getDiachi());
@@ -153,7 +145,7 @@ public class HomeFragment extends Fragment {
                 intent.putExtra(SHIPTINHTRANG, listDanhSach.getTinhtrangship());
                 intent.putExtra(FACEBOOK_CH, listDanhSach.getFacebook());
                 intent.putExtra(IMAGE, listDanhSach.getImage());
-                startActivity(intent);
+                ActivityCompat.startActivity(getActivity(),intent,options.toBundle());
             }
         });
         return view;
