@@ -23,7 +23,8 @@ import java.util.List;
 public class AdapterCuaHangInfomation extends RecyclerView.Adapter<AdapterCuaHangInfomation.ViewHolder>{
     Context context;
     List<ModelInfoCuaHang> modelInfoCuaHangList;
-    public static final String IMAGE = "image";
+    public static final String ID = "id";
+    public static final String IMAGE66 = "Image";
 
     public AdapterCuaHangInfomation(Context context, List<ModelInfoCuaHang> modelInfoCuaHangList) {
         this.context = context;
@@ -38,15 +39,15 @@ public class AdapterCuaHangInfomation extends RecyclerView.Adapter<AdapterCuaHan
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final ModelInfoCuaHang modelInfoCuaHang = modelInfoCuaHangList.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Glide.with(context).load(modelInfoCuaHangList.get(position).getImage()).into(holder.image);
-        ViewCompat.setTransitionName(holder.image,modelInfoCuaHang.getImage());
-        holder.layout.setOnClickListener(new View.OnClickListener() {
+        holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Toast.makeText(context, modelInfoCuaHangList.get(position).id, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, ImageFullScreen.class);
-                intent.putExtra("imagefull",modelInfoCuaHang.getImage());
+                intent.putExtra(ID,modelInfoCuaHangList.get(position).getId());
+                intent.putExtra(IMAGE66,modelInfoCuaHangList.get(position).getImage());
                 context.startActivity(intent);
             }
         });

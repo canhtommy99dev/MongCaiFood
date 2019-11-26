@@ -6,11 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ImageFullScreen">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </androidx.appcompat.widget.Toolbar>
     <com.github.chrisbanes.photoview.PhotoView
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/screenfullhd">
-
-    </com.github.chrisbanes.photoview.PhotoView>
+        android:src="@drawable/ic_image_black_24dp"
+        android:id="@+id/photomc"/>
 
 </RelativeLayout>

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +42,7 @@ public class CommentActivity extends AppCompatActivity implements GoogleApiClien
     ImageView btnBack;
     CircleImageView imageAvater;
     EditText edtComment;
-    SeekBar seekBarRating;
+    RatingBar seekBarRating;
     Button commentTrucTiep;
     TextView account1,textViewRating;
     String id,name,comment,imagecomment;
@@ -67,7 +68,6 @@ public class CommentActivity extends AppCompatActivity implements GoogleApiClien
         seekBarRating = findViewById(R.id.seekBarRating);
         commentTrucTiep = findViewById(R.id.buttonAddTrack);
         account1 = findViewById(R.id.account_gooogke);
-        textViewRating = findViewById(R.id.txtDanhSo);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,22 +84,7 @@ public class CommentActivity extends AppCompatActivity implements GoogleApiClien
                 .enableAutoManage(this,this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-        seekBarRating.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                textViewRating.setText(String.valueOf(i));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+        seekBarRating.getRating();
         dataCommentDanhGia = FirebaseDatabase.getInstance().getReference("CommentBaiViet").child(intent.getStringExtra(InfomationFoody.ID));
         commentTrucTiep.setOnClickListener(new View.OnClickListener() {
             @Override
