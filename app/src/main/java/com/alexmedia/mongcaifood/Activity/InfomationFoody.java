@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alexmedia.mongcaifood.Adapter.AdapterComment;
-import com.alexmedia.mongcaifood.Adapter.AdapterCuaHangInfomation;
+import com.alexmedia.mongcaifood.Adapter.AdapterImageFull;
 import com.alexmedia.mongcaifood.Model.ModelComment;
 import com.alexmedia.mongcaifood.Model.ModelInfoCuaHang;
 import com.alexmedia.mongcaifood.R;
@@ -40,7 +40,7 @@ public class InfomationFoody extends AppCompatActivity {
     DatabaseReference databaseAnhDoDuLieuImage,databaseComment;
     List<ModelInfoCuaHang> mc1;
     List<ModelComment> comments;
-    AdapterCuaHangInfomation infomation;
+    AdapterImageFull infomation;
     AdapterComment adapterComment;
     Button btncomment;
     RecyclerView recyclerView,recyclerView1;
@@ -114,34 +114,16 @@ public class InfomationFoody extends AppCompatActivity {
 
             }
         });
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView = findViewById(R.id.recyclerView);
-        infomation = new AdapterCuaHangInfomation(getApplicationContext(),mc1);
+        infomation = new AdapterImageFull(getApplicationContext(),mc1);
         recyclerView.setAdapter(infomation);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        databaseAnhDoDuLieuImage.addValueEventListener(valueEventListener);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
         adapterComment = new AdapterComment(InfomationFoody.this,comments);
         recyclerView1 = findViewById(R.id.lvcommon);
         recyclerView1.setAdapter(adapterComment);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
     }
-    ValueEventListener valueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            mc1.clear();
-            for (DataSnapshot lsc1:dataSnapshot.getChildren()){
-                ModelInfoCuaHang modelInfoCuaHang = lsc1.getValue(ModelInfoCuaHang.class);
-                mc1.add(modelInfoCuaHang);
-                infomation.notifyDataSetChanged();
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
 
     @Override
     protected void onStart() {
@@ -162,10 +144,27 @@ public class InfomationFoody extends AppCompatActivity {
 
             }
         });
+        databaseAnhDoDuLieuImage.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mc1.clear();
+                for (DataSnapshot lsc1:dataSnapshot.getChildren()){
+                    ModelInfoCuaHang modelInfoCuaHang = lsc1.getValue(ModelInfoCuaHang.class);
+                    mc1.add(modelInfoCuaHang);
+                    infomation.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
         ActivityCompat.finishAfterTransition(this);
     }
+
 }

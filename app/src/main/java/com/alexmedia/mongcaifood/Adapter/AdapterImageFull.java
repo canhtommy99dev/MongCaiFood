@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alexmedia.mongcaifood.Activity.ImageFullScreen;
@@ -19,16 +17,17 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-public class AdapterCuaHangInfomation extends RecyclerView.Adapter<AdapterCuaHangInfomation.ViewHolder>{
+public class AdapterImageFull extends RecyclerView.Adapter<AdapterImageFull.ViewHolder> {
     Context context;
-    List<ModelInfoCuaHang> modelInfoCuaHangList;
+    List<ModelInfoCuaHang> modelInfoCuaHangs;
     public static final String ID = "id";
     public static final String IMAGE66 = "Image";
 
-    public AdapterCuaHangInfomation(Context context, List<ModelInfoCuaHang> modelInfoCuaHangList) {
+    public AdapterImageFull(Context context, List<ModelInfoCuaHang> modelInfoCuaHangs) {
         this.context = context;
-        this.modelInfoCuaHangList = modelInfoCuaHangList;
+        this.modelInfoCuaHangs = modelInfoCuaHangs;
     }
 
     @NonNull
@@ -39,15 +38,15 @@ public class AdapterCuaHangInfomation extends RecyclerView.Adapter<AdapterCuaHan
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        Glide.with(context).load(modelInfoCuaHangList.get(position).getImage()).into(holder.image);
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        Glide.with(context).load(modelInfoCuaHangs.get(position).getImage()).into(holder.image);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(context, modelInfoCuaHangList.get(position).id, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, ImageFullScreen.class);
-                intent.putExtra(ID,modelInfoCuaHangList.get(position).getId());
-                intent.putExtra(IMAGE66,modelInfoCuaHangList.get(position).getImage());
+                intent.putExtra(ID,modelInfoCuaHangs.get(position).getId());
+                intent.putExtra(IMAGE66,modelInfoCuaHangs.get(position).getImage());
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -55,18 +54,16 @@ public class AdapterCuaHangInfomation extends RecyclerView.Adapter<AdapterCuaHan
 
     @Override
     public int getItemCount() {
-        return modelInfoCuaHangList.size();
+        return modelInfoCuaHangs.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
-        RelativeLayout layout;
 
         public ViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.imageInfo);
-            layout = itemView.findViewById(R.id.parent_layout);
         }
     }
 }
