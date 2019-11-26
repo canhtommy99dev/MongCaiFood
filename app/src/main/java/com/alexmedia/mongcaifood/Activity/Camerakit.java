@@ -155,16 +155,12 @@ public class Camerakit extends AppCompatActivity {
                 .setPositiveButton("Oke", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(getApplicationContext(), TkActivityApplication.class);
-                        intent.putExtra(TENCH,textSearch);
-                        startActivity(intent);
+                        dialog.dismiss();
                     }
-                }).setPositiveButton("Tìm Kiếm", new DialogInterface.OnClickListener() {
+                }).setPositiveButton("Oke", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), TkActivityApplication.class);
-                intent.putExtra(TENCH,textSearch);
-                startActivity(intent);
+                dialog.dismiss();
             }
         });
         AlertDialog dialog2 = builder.create();
