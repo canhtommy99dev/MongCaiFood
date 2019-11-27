@@ -6,70 +6,79 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/imagehd" />
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cách bước sử dụng">
-    </TextView>
-    <TextView
-        android:layout_marginLeft="70dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bước 1:chọn GPS Mà đang ở vị trí">
-    </TextView>
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="45dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bước 2:Chọn Vị trí mà bạn muốn đến như hình mẫu">
-    </TextView>
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="65dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Và đánh theo thứ tự">
-    </TextView>
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="290dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bước 4:Bạn đi theo vị trí mà bạn muốn">
-    </TextView>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="90dp"
+                android:src="@drawable/imagehd" />
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cách bước sử dụng">
+            </TextView>
+            <TextView
+                android:layout_marginLeft="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bước 1:chọn GPS Mà đang ở vị trí">
+            </TextView>
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="45dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bước 2:Chọn Vị trí mà bạn muốn đến như hình mẫu">
+            </TextView>
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Và đánh theo thứ tự">
+            </TextView>
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="290dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bước 3:Bạn đi theo vị trí mà bạn muốn">
+            </TextView>
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="160dp"
-        android:layout_height="250dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="310dp"
-        android:src="@drawable/mmcaa" />
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="560dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chúc bạn thành công">
-    </TextView>
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="160dp"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="310dp"
+                android:src="@drawable/mmcaa" />
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="560dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chúc bạn thành công">
+            </TextView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
