@@ -59,7 +59,7 @@ public class NhaHangActivity extends AppCompatActivity {
             }
         });
         txtAnSang = findViewById(R.id.txtNhaHang);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         txtAnSang.setTypeface(typeface);
         databaseNhaHang = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         progxuly4 = findViewById(R.id.progLoadMa4);

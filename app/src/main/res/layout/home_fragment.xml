@@ -10,7 +10,7 @@
 
 
     <technolifestyle.com.imageslider.FlipperLayout
-        android:id="@+id/fli"
+        android:id="@+id/flizzz"
         android:layout_width="match_parent"
         android:layout_height="228dp"
         android:layout_alignParentStart="true"

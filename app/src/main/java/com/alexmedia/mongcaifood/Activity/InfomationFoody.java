@@ -69,6 +69,15 @@ public class InfomationFoody extends AppCompatActivity {
         ///
         imgInfo = findViewById(R.id.iv_detail);
         txtdiachi = findViewById(R.id.txtaddress);
+        txtdiachi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q="+diachi1);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
         txtTimer = findViewById(R.id.txttimeopenclose);
         txtSdt = findViewById(R.id.txtphonenumber);
         txtfb = findViewById(R.id.txtFacebook);

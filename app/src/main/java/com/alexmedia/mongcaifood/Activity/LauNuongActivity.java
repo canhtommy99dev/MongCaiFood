@@ -59,7 +59,7 @@ public class LauNuongActivity extends AppCompatActivity {
             }
         });
         txtAnSang = findViewById(R.id.txtLauNuong);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         txtAnSang.setTypeface(typeface);
         databaseLauNuonh = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         progxuly7 = findViewById(R.id.progLoadMa7);

@@ -35,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -74,7 +75,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment,container,false);
-        fli =view.findViewById(R.id.fli);
+        fli =view.findViewById(R.id.flizzz);
         getActivity().setTitle("Trang Chủ");
 
         String url[] =new  String[]{
@@ -105,31 +106,13 @@ public class HomeFragment extends Fragment {
             this.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         }
         textViewDS = view.findViewById(R.id.txtDanhSachCuaHang);
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/robotothin.ttf");
         textViewDS.setTypeface(typeface);
         br = view.findViewById(R.id.pro111);
         lvChl = view.findViewById(R.id.lvDachSachCH);
         cCHMC = new ArrayList<>();
         docuahang = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
-        docuahang.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                cCHMC.clear();
-                for (DataSnapshot list:dataSnapshot.getChildren()){
-                    ListDanhSach listDanhSach = list.getValue(ListDanhSach.class);
-                    cCHMC.add(listDanhSach);
-                    cuaHang = new AdapterCuaHang(getContext(),R.layout.adaptercuahang,cCHMC);
-                    lvChl.setAdapter(cuaHang);
-                    cuaHang.notifyDataSetChanged();
-                    br.setVisibility(View.INVISIBLE);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        docuahang.addListenerForSingleValueEvent(valueEventListener);
         lvChl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -148,6 +131,27 @@ public class HomeFragment extends Fragment {
                 ActivityCompat.startActivity(getActivity(),intent,options.toBundle());
             }
         });
+
         return view;
     }
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            cCHMC.clear();
+            for (DataSnapshot list:dataSnapshot.getChildren()){
+                ListDanhSach listDanhSach = list.getValue(ListDanhSach.class);
+                cCHMC.add(listDanhSach);
+                cuaHang = new AdapterCuaHang(getContext(),R.layout.adaptercuahang,cCHMC);
+                lvChl.setAdapter(cuaHang);
+                cuaHang.notifyDataSetChanged();
+                br.setVisibility(View.INVISIBLE);
+                Collections.reverse(cCHMC);
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 }

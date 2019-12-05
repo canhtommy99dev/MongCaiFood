@@ -24,6 +24,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AnSangActivty extends AppCompatActivity {
@@ -59,7 +60,7 @@ public class AnSangActivty extends AppCompatActivity {
             }
         });
         txtAnSang = findViewById(R.id.txtAnSangAc);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         txtAnSang.setTypeface(typeface);
         databaseAnSang = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         prog1 = findViewById(R.id.progLoadMa144);
@@ -99,6 +100,7 @@ public class AnSangActivty extends AppCompatActivity {
                 listDanhSaches.add(lc1);
                 adapterAnSang.notifyDataSetChanged();
                 prog1.setVisibility(View.INVISIBLE);
+                Collections.reverse(listDanhSaches);
             }
         }
 

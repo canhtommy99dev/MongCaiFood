@@ -58,7 +58,7 @@ public class MapChiDuongMC extends FragmentActivity implements OnMapReadyCallbac
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         txtBanDo = findViewById(R.id.txtBanDo);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         txtBanDo.setTypeface(typeface);
 
         imgBack = findViewById(R.id.imgBack2);

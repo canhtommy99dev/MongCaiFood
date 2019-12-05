@@ -58,7 +58,7 @@ public class AnVatActivty extends AppCompatActivity {
             }
         });
         txtAnSang = findViewById(R.id.txtAnVat);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         txtAnSang.setTypeface(typeface);
         databaseAnVat = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         progxuly5 = findViewById(R.id.progLoadMa5);

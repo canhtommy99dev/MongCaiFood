@@ -38,7 +38,7 @@ public class InstagramLoginandexit extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.instagram_fragment,container,false);
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/robotothin.ttf");
         txtabbout = view.findViewById(R.id.txtAboutDeveloper);
         txtabbout.setTypeface(typeface);
         return view;

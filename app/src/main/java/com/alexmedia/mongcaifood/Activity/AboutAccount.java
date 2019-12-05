@@ -48,7 +48,7 @@ public class AboutAccount extends AppCompatActivity implements GoogleApiClient.O
         back = findViewById(R.id.imgBACK);
         txtMmc = findViewById(R.id.txtMCC2);
         intent = getIntent();
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         userName.setTypeface(typeface);
         userEmail.setTypeface(typeface);
         txtMmc.setTypeface(typeface);

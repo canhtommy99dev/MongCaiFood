@@ -59,7 +59,7 @@ public class AnTruaActivity extends AppCompatActivity {
             }
         });
         txtAnSang = findViewById(R.id.txtAnTrua);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/uvnsaigon.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
         txtAnSang.setTypeface(typeface);
         databaseAnTrua = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
         progxuly = findViewById(R.id.progLoadMa66);
