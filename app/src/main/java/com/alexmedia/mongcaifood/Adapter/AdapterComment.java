@@ -37,7 +37,7 @@ public class AdapterComment extends RecyclerView.Adapter<AdapterComment.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Glide.with(context).load(modelComments.get(position).getImageComment()).into(holder.image1);
         holder.txtacc.setText("Người dùng: "+modelComments.get(position).getName());
-        holder.txtReview.setText("Đánh giá: "+String.valueOf(modelComments.get(position).getSeek())+" SAO");
+        holder.txtReview.setText("Đánh giá: "+String.valueOf(modelComments.get(position).getSeek()));
         holder.txtComment.setText(modelComments.get(position).getComment());
     }
 

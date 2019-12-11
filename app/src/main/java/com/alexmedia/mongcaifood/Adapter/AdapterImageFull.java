@@ -14,14 +14,14 @@ import com.alexmedia.mongcaifood.Activity.ImageFullScreen;
 import com.alexmedia.mongcaifood.Model.ModelInfoCuaHang;
 import com.alexmedia.mongcaifood.R;
 import com.bumptech.glide.Glide;
-
 import java.util.List;
+
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class AdapterImageFull extends RecyclerView.Adapter<AdapterImageFull.ViewHolder> {
     Context context;
-    List<ModelInfoCuaHang> modelInfoCuaHangs;
+    List<ModelInfoCuaHang>modelInfoCuaHangs;
     public static final String ID = "id";
     public static final String IMAGE66 = "Image";
 

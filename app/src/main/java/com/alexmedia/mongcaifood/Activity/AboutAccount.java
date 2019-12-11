@@ -31,7 +31,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AboutAccount extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     Button logoutBtn;
     ImageView back;
-    TextView userName,userEmail,txtMmc;
+    TextView userName,userEmail;
     CircleImageView profileImage;
     private GoogleApiClient googleApiClient;
     private GoogleSignInOptions gso;
@@ -46,12 +46,10 @@ public class AboutAccount extends AppCompatActivity implements GoogleApiClient.O
         userEmail = findViewById(R.id.email);
         profileImage = findViewById(R.id.profileImage);
         back = findViewById(R.id.imgBACK);
-        txtMmc = findViewById(R.id.txtMCC2);
         intent = getIntent();
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotolight.ttf");
         userName.setTypeface(typeface);
         userEmail.setTypeface(typeface);
-        txtMmc.setTypeface(typeface);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

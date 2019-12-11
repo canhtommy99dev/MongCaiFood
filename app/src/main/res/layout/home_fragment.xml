@@ -6,56 +6,50 @@
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
-
-
-    <technolifestyle.com.imageslider.FlipperLayout
-        android:id="@+id/flizzz"
-        android:layout_width="match_parent"
-        android:layout_height="228dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-    </technolifestyle.com.imageslider.FlipperLayout>
-
-    <TextView
-        android:textColor="@color/colorAccent"
-        android:id="@+id/txtDanhSachCuaHang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="229dp"
-        android:text="Danh Sách Cửa Hàng"
-        android:textSize="30dp"/>
-    <LinearLayout
+    tools:context=".ui.home.HomeFragment"
+    android:background="@drawable/backgroundfragment">
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:transitionName="@string/transition"
-        android:orientation="vertical">
+        android:fillViewport="true">
 
-    <ListView
-        android:id="@+id/lvDachSachCH"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="273dp" >
-    </ListView>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <technolifestyle.com.imageslider.FlipperLayout
+                android:id="@+id/flizzz"
+                android:layout_width="match_parent"
+                android:layout_height="228sp"
+                android:layout_alignParentStart="true"
+                android:layout_margin="20sp"
+                tools:ignore="MissingConstraints">
+            </technolifestyle.com.imageslider.FlipperLayout>
 
-    </LinearLayout>
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                android:id="@+id/txtDanhSachCuaHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh Sách Cửa Hàng"
+                android:textSize="30dp"/>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewDanhSachCuaHang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
     <ProgressBar
         android:layout_margin="350dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/pro111"
+        android:id="@+id/pro1116"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 </RelativeLayout>

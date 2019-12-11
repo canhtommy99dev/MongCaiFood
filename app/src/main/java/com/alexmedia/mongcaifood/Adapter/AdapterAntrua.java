@@ -24,7 +24,7 @@ public class AdapterAntrua extends ArrayAdapter<ListDanhSach> {
     List<ListDanhSach> listDanhSaches;
 
     public AdapterAntrua(Activity activity,List<ListDanhSach> listDanhSaches) {
-        super(activity, R.layout.adapter_ansang,listDanhSaches);
+        super(activity, R.layout.adapterantrua,listDanhSaches);
         this.activity = activity;
         this.listDanhSaches = listDanhSaches;
     }

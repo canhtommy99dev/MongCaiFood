@@ -5,69 +5,138 @@
     android:layout_height="match_parent"
     android:background="#CBC1C1"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/map"/>
+        <TextView
+            android:layout_marginLeft="10sp"
+            android:layout_gravity="center"
+            android:id="@+id/txtaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ:"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/information"/>
     <TextView
-        android:id="@+id/txtaddress"
+        android:layout_marginLeft="10sp"
+        android:layout_gravity="center"
+        android:id="@+id/tspmmm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Địa chỉ:"
-        android:textColor="#fff"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
         android:text="Thông tin cửa hàng:"
         android:textColor="#fff"
         android:textSize="20sp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/clock"/>
     <TextView
+        android:layout_marginLeft="10sp"
         android:id="@+id/txttimeopenclose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text=" -- Thời gian:"
         android:textColor="#fff"
         android:textSize="20sp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/call"/>
     <TextView
+        android:layout_marginLeft="10sp"
         android:id="@+id/txtphonenumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text=" -- Số điện thoại:"
         android:textColor="#fff"
         android:textSize="20sp" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/facebook"/>
     <TextView
+        android:layout_marginLeft="10sp"
         android:id="@+id/txtFacebook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text=" -- Facebook:"
         android:textColor="#fff"
         android:textSize="20sp" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shipped"/>
     <TextView
+        android:layout_marginLeft="10sp"
         android:id="@+id/txtShipDoAn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text=" -- Ship đồ ăn:"
         android:textColor="#fff"
         android:textSize="20sp" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"/>
     <TextView
+        android:layout_marginLeft="10sp"
         android:id="@+id/textView8c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:text="Một Số Ảnh Về Quán"
         android:textColor="#fff"
         android:textSize="20sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -78,7 +147,8 @@
 
     <Button
         android:id="@+id/btnComment"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:background="@drawable/round"
         android:text="Thêm Bình Luận"

@@ -1,8 +1,5 @@
 package com.alexmedia.mongcaifood.ui.home;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.ActivityOptionsCompat;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,22 +9,19 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.alexmedia.mongcaifood.Adapter.AdapterCuaHang;
-import com.alexmedia.mongcaifood.Activity.InfomationFoody;
+import com.alexmedia.mongcaifood.Adapter.AdapterCuaHangRecycleView;
 import com.alexmedia.mongcaifood.Model.ListDanhSach;
 import com.alexmedia.mongcaifood.R;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import technolifestyle.com.imageslider.FlipperLayout;
 import technolifestyle.com.imageslider.FlipperView;
 
@@ -46,26 +39,16 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel mViewModel;
     FlipperLayout fli;
-    CircleImageView img;
-    GoogleApiClient client;
-    GoogleSignInOptions options;
     DatabaseReference docuahang;
-    List<ListDanhSach> cCHMC;
-    ListView lvChl;
-    AdapterCuaHang cuaHang;
+    ArrayList<ListDanhSach> cCHMC;
     ProgressBar br;
     Context context;
     Intent intent;
     String image;
     TextView textViewDS;
-    public static final String ID = "id";
-    public static final String TENCH = "tench";
-    public static final String ADDRESS = "diachi";
-    public static final String TIMEOPENEND = "time";
-    public static final String SODIENTHOAI = "thoigian";
-    public static final String SHIPTINHTRANG = "tinhtrangship";
-    public static final String FACEBOOK_CH = "facebook";
-    public static final String IMAGE = "image";
+    AdapterCuaHangRecycleView adapterCuaHangRecycleView;
+    RecyclerView recyclerViewCuaHang;
+
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -106,33 +89,19 @@ public class HomeFragment extends Fragment {
             this.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         }
         textViewDS = view.findViewById(R.id.txtDanhSachCuaHang);
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/robotothin.ttf");
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/robotolight.ttf");
         textViewDS.setTypeface(typeface);
-        br = view.findViewById(R.id.pro111);
-        lvChl = view.findViewById(R.id.lvDachSachCH);
-        cCHMC = new ArrayList<>();
-        docuahang = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
-        docuahang.addListenerForSingleValueEvent(valueEventListener);
-        lvChl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ListDanhSach listDanhSach = cCHMC.get(position);
-                Intent intent = new Intent(getActivity(), InfomationFoody.class);
-                String transitionName = getString(R.string.transition);
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),view,transitionName);
-                intent.putExtra(ID, listDanhSach.getId());
-                intent.putExtra(TENCH, listDanhSach.getTench());
-                intent.putExtra(ADDRESS, listDanhSach.getDiachi());
-                intent.putExtra(TIMEOPENEND, listDanhSach.getThoigian());
-                intent.putExtra(SODIENTHOAI, listDanhSach.getSodt());
-                intent.putExtra(SHIPTINHTRANG, listDanhSach.getTinhtrangship());
-                intent.putExtra(FACEBOOK_CH, listDanhSach.getFacebook());
-                intent.putExtra(IMAGE, listDanhSach.getImage());
-                ActivityCompat.startActivity(getActivity(),intent,options.toBundle());
-            }
-        });
+        br = view.findViewById(R.id.pro1116);
 
+        docuahang = FirebaseDatabase.getInstance().getReference("CuaHang/DanhSachCuaHang");
+        recyclerViewCuaHang = view.findViewById(R.id.recyclerViewDanhSachCuaHang);
+        cCHMC = new ArrayList<>();
+        recyclerViewCuaHang.setLayoutManager(new GridLayoutManager(getContext(),2));
+        adapterCuaHangRecycleView = new AdapterCuaHangRecycleView(getActivity(),cCHMC,R.layout.adapter_cua_hang_recycleview);
+        docuahang.addValueEventListener(valueEventListener);
+        recyclerViewCuaHang.setAdapter(adapterCuaHangRecycleView);
         return view;
+
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -141,11 +110,9 @@ public class HomeFragment extends Fragment {
             for (DataSnapshot list:dataSnapshot.getChildren()){
                 ListDanhSach listDanhSach = list.getValue(ListDanhSach.class);
                 cCHMC.add(listDanhSach);
-                cuaHang = new AdapterCuaHang(getContext(),R.layout.adaptercuahang,cCHMC);
-                lvChl.setAdapter(cuaHang);
-                cuaHang.notifyDataSetChanged();
                 br.setVisibility(View.INVISIBLE);
                 Collections.reverse(cCHMC);
+                adapterCuaHangRecycleView.notifyDataSetChanged();
             }
         }
 

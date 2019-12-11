@@ -24,13 +24,15 @@
             <LinearLayout
                 android:layout_marginTop="160dp"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:orientation="vertical"
-                android:background="#FFC107">
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_marginLeft="10sp"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:src="@drawable/navigation"/>
 
                 <TextView
-                    android:gravity="center"
-                    android:textColor="#fff"
+                    android:layout_gravity="center"
                     android:id="@+id/txtTenDuLich"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

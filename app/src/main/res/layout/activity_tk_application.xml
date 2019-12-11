@@ -5,20 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundapplication">
+    android:background="#A8E6CE">
     <ImageView
+        android:layout_margin="10sp"
         android:id="@+id/btnBacl2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/ic_arrow_back_black_24dp"/>
+        android:src="@drawable/back"/>
     <SearchView
-        android:paddingLeft="50dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="70dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/simpleSearchView">
     </SearchView>
     <TextView
+
         android:id="@+id/cmm"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
@@ -29,7 +32,7 @@
 
     <ListView
         android:id="@+id/lvTimKiem"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 

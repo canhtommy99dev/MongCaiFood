@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -54,6 +55,7 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
     FirebaseAuth.AuthStateListener authStateListener;
     private static final int GOOGLE_SIGN = 1;
     GoogleApiClient mgoogleclient;
+    TextView textMoiBan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,15 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
         btnGoogle = findViewById(R.id.btnLoginGoogle);
         btnGoogle.startAnimation(float_in);
         imgIntro.startAnimation(bouncein);
+        imgLogin = findViewById(R.id.linearLayout111);
+        imgLogin.startAnimation(float_in);
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotolight.ttf");
         mAuth = FirebaseAuth.getInstance();
+        textMoiBan = findViewById(R.id.textMoiBan);
+        textMoiBan.setTypeface(typeface);
+        imgLogin.startAnimation(bouncein);
+        btnGoogle.startAnimation(bouncein);
+        textMoiBan.startAnimation(bouncein);
         if (checkNetwork()){
 
         }else if (!checkNetwork())
@@ -113,7 +123,7 @@ public class LoginWithApp extends AppCompatActivity implements GoogleApiClient.O
             }
         };
     }
-//thêm thư viện google
+    //thêm thư viện google
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

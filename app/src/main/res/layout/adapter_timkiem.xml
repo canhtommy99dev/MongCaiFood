@@ -17,14 +17,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:src="@drawable/ic_image_black_24dp"/>
+            <ImageView
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="130dp"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:src="@drawable/shopmctitle"/>
             <TextView
-                android:layout_marginLeft="20dp"
+
                 android:id="@+id/txtTenCH1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="demo"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="130dp"
+                android:layout_marginLeft="40dp"
                 android:textSize="20sp"
                 android:textColor="#FFFFFF"/>
         </RelativeLayout>
@@ -36,25 +43,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:orientation="vertical"
-                android:background="#FF5722">
+                android:background="#45ADA8">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginLeft="10sp"
+                        android:layout_gravity="center"
+                        android:layout_width="30sp"
+                        android:layout_height="30sp"
+                        android:src="@drawable/navigation"/>
 
                 <TextView
                     android:textColor="#fff"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/txtDiaChi1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:text="Địa Chỉ" />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginLeft="10sp"
+                        android:layout_gravity="center"
+                        android:layout_width="30sp"
+                        android:layout_height="30sp"
+                        android:src="@drawable/callphone"/>
                 <TextView
                     android:textColor="#fff"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/txtsdtGoi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:text="SĐT" />
+                </LinearLayout>
 
                 <TextView
                     android:textColor="#fff"

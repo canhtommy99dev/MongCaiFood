@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alexmedia.mongcaifood.Adapter.AdapterMap;
 import com.alexmedia.mongcaifood.Model.ListDanhSach;
 import com.alexmedia.mongcaifood.R;
 import com.google.android.gms.maps.GoogleMap;
@@ -89,8 +90,14 @@ public class MapChiDuongMC extends FragmentActivity implements OnMapReadyCallbac
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dm:dataSnapshot.getChildren()){
                     ListDanhSach listDanhSach = dm.getValue(ListDanhSach.class);
-                    LatLng latLng = new LatLng(listDanhSach.getLatitude(),listDanhSach.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(listDanhSach.getTench() + "---" + listDanhSach.getDiachi())).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.position(new LatLng(listDanhSach.getLatitude(),listDanhSach.getLongitude()))
+                            .title(listDanhSach.getTench())
+                            .snippet(listDanhSach.getDiachi())
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+                    AdapterMap adapterMap = new AdapterMap(MapChiDuongMC.this);
+                    mMap.setInfoWindowAdapter(adapterMap);
+                    mMap.addMarker(markerOptions);
                 }
             }
 

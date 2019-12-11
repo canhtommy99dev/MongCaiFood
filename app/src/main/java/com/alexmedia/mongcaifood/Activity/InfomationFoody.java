@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alexmedia.mongcaifood.Adapter.AdapterComment;
+import com.alexmedia.mongcaifood.Adapter.AdapterCuaHangRecycleView;
 import com.alexmedia.mongcaifood.Adapter.AdapterImageFull;
 import com.alexmedia.mongcaifood.Model.ModelComment;
 import com.alexmedia.mongcaifood.Model.ModelInfoCuaHang;
 import com.alexmedia.mongcaifood.R;
-import com.alexmedia.mongcaifood.ui.home.HomeFragment;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,8 +50,8 @@ public class InfomationFoody extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infomation_foody);
         intent = getIntent();
-        databaseAnhDoDuLieuImage = FirebaseDatabase.getInstance().getReference("ImageAlbum").child(intent.getStringExtra(HomeFragment.ID));
-        databaseComment = FirebaseDatabase.getInstance().getReference("CommentBaiViet").child(intent.getStringExtra(HomeFragment.ID));
+        databaseAnhDoDuLieuImage = FirebaseDatabase.getInstance().getReference("ImageAlbum").child(intent.getStringExtra(AdapterCuaHangRecycleView.ID));
+        databaseComment = FirebaseDatabase.getInstance().getReference("CommentBaiViet").child(intent.getStringExtra(AdapterCuaHangRecycleView.ID));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() !=null) {
@@ -83,14 +83,14 @@ public class InfomationFoody extends AppCompatActivity {
         txtfb = findViewById(R.id.txtFacebook);
         ship = findViewById(R.id.txtShipDoAn);
         ///
-        id = intent.getStringExtra(HomeFragment.ID);
-        tench1 = intent.getStringExtra(HomeFragment.TENCH);
-        diachi1 = intent.getStringExtra(HomeFragment.ADDRESS);
-        timeopen = intent.getStringExtra(HomeFragment.TIMEOPENEND);
-        sodt1 = intent.getStringExtra(HomeFragment.SODIENTHOAI);
-        fb1 = intent.getStringExtra(HomeFragment.FACEBOOK_CH);
-        ship1 = intent.getStringExtra(HomeFragment.SHIPTINHTRANG);
-        image1 = intent.getStringExtra(HomeFragment.IMAGE);
+        id = intent.getStringExtra(AdapterCuaHangRecycleView.ID);
+        tench1 = intent.getStringExtra(AdapterCuaHangRecycleView.TENCH);
+        diachi1 = intent.getStringExtra(AdapterCuaHangRecycleView.ADDRESS);
+        timeopen = intent.getStringExtra(AdapterCuaHangRecycleView.TIMEOPENEND);
+        sodt1 = intent.getStringExtra(AdapterCuaHangRecycleView.SODIENTHOAI);
+        fb1 = intent.getStringExtra(AdapterCuaHangRecycleView.FACEBOOK_CH);
+        ship1 = intent.getStringExtra(AdapterCuaHangRecycleView.SHIPTINHTRANG);
+        image1 = intent.getStringExtra(AdapterCuaHangRecycleView.IMAGE);
         ///
         Glide.with(this).load(image1).centerCrop().into(imgInfo);
         setTitle(tench1);

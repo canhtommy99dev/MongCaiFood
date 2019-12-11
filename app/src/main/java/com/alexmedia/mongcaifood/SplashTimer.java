@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.DigitalClock;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -16,21 +17,14 @@ import java.util.Calendar;
 
 public class SplashTimer extends AppCompatActivity {
     TextView tv1;
-    DigitalClock digitalClock;
-    Calendar lich;
     Animation al,a2,a3,a4;
+    ImageView imgIntro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_timer);
         al = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.bouncein);
-        tv1 = findViewById(R.id.txtLich);
-        digitalClock = findViewById(R.id.simpleDigitalClock);
-        lich = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(lich.getTime());
-        tv1.setText(currentDate);
-        tv1.startAnimation(al);
-        digitalClock.startAnimation(al);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -38,6 +32,8 @@ public class SplashTimer extends AppCompatActivity {
                 finish();
             }
         },5000);
+        imgIntro = findViewById(R.id.imgIntro);
+        imgIntro.startAnimation(al);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
     }
 }

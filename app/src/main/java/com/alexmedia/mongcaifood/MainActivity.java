@@ -54,9 +54,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        fontc = findViewById(R.id.txtMongCaiTitle);
-        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotothin.ttf");
-        fontc.setTypeface(typeface);
+        Typeface typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/robotolight.ttf");
         if (checkNetwork()){
 
         }else if (!checkNetwork())

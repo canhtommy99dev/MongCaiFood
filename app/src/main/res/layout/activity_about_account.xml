@@ -5,15 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundapplication">
+    android:background="@drawable/hinhnen2">
 
     <ImageView
         android:id="@+id/imgBACK"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+        app:srcCompat="@drawable/back"
+        android:layout_margin="15sp"/>
 
-    <TextView
+    <ImageView
+        android:src="@drawable/iconhome"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp"
         android:id="@+id/txtMCC2"
@@ -37,6 +39,7 @@
             android:id="@+id/profileImage"
             />
         <TextView
+            android:textColor="#FFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name"
@@ -44,6 +47,7 @@
             android:textSize="20dp"
             android:layout_marginTop="20dp"/>
         <TextView
+            android:textColor="#FFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/email"
@@ -51,7 +55,7 @@
             android:text="email"
             android:layout_marginTop="20dp"/>
         <Button
-            android:background="@drawable/btndangxuatfb"
+            android:background="@drawable/btndangxuat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/logoutBtn"
