@@ -64,6 +64,7 @@ public class InfomationFoody extends AppCompatActivity {
                 finish();
             }
         });
+        toolbar.setNavigationIcon(R.drawable.back);
         mc1 = new ArrayList<>();
         comments = new ArrayList<>();
         ///

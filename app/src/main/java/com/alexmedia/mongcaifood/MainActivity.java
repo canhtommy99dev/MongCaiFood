@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.alexmedia.mongcaifood.Activity.AboutAccount;
 import com.alexmedia.mongcaifood.Activity.Camerakit;
-import com.alexmedia.mongcaifood.Activity.TimKiemActivity;
 import com.alexmedia.mongcaifood.Activity.TkActivityApplication;
 import com.alexmedia.mongcaifood.ui.home.HomeFragment;
 import com.alexmedia.mongcaifood.ui.thongbao.ThongBaoFragment;

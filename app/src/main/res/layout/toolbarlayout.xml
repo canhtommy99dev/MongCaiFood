@@ -2,39 +2,39 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimaryDark">
     <de.hdodenhof.circleimageview.CircleImageView
         android:src="@drawable/avataracount"
         android:id="@+id/btn_avatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10sp"
         />
     <ImageView
         android:id="@+id/btnsearch"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
         android:src="@drawable/search"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="55dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_centerInParent="true"
+        android:layout_marginRight="55dp"/>
 
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_centerInParent="true"
         android:src="@drawable/qrcode"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="110dp"
+        android:layout_marginRight="100dp"
         android:layout_marginTop="5dp"
         android:id="@+id/camerakit"/>
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="170sp"
         android:layout_height="wrap_content"
         android:src="@drawable/iconhome"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_margin="5sp"/>
 </RelativeLayout>

@@ -8,8 +8,8 @@
     android:background="#4830D4">
     <ImageView
         android:id="@+id/btnBac4"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="25sp"
+        android:layout_height="25dp"
         android:layout_margin="15sp"
         android:layout_alignParentLeft="true"
         android:src="@drawable/back"/>
@@ -17,16 +17,16 @@
         android:id="@+id/txtNhaHang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10sp"
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
         android:text="Nhà Hàng"
         android:textColor="#fff"
-        android:textSize="30dp" />
+        android:textSize="25sp" />
 
     <ListView
         android:id="@+id/lvNhaHang"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50sp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 

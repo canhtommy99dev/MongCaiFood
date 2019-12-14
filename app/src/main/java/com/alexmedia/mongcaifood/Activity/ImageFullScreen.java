@@ -40,6 +40,7 @@ public class ImageFullScreen extends AppCompatActivity {
                 finish();
             }
         });
+        toolbar.setNavigationIcon(R.drawable.back);
         setTitle("");
     }
 }

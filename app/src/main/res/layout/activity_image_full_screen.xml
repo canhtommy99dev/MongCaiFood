@@ -6,8 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ImageFullScreen">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar1"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
     </androidx.appcompat.widget.Toolbar>

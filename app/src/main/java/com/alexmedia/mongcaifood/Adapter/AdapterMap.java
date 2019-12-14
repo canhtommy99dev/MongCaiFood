@@ -2,9 +2,11 @@ package com.alexmedia.mongcaifood.Adapter;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alexmedia.mongcaifood.R;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 
@@ -30,6 +32,7 @@ public class AdapterMap implements GoogleMap.InfoWindowAdapter {
         TextView diachi = view.findViewById(R.id.diachicuahang);
         tencuahang.setText(marker.getTitle());
         diachi.setText(marker.getSnippet());
+
         return view;
     }
 }
